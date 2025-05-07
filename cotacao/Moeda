@@ -1,0 +1,42 @@
+
+function RealParaDolar(valorConverter) {
+    const cotacao= 5.76; // constante aquele que não é possivel de mudar
+    let valorConvertido; // aquele que muda se chama let
+    valorConvertido = (valorConverter/cotacao).toFixed(2); ///limita os numeros atrás da virgula
+    return "U$" + valorConvertido; // retorna o valor convertido
+}
+
+function RealParaEuro(valorConverter) {
+    const cotacao= 6.52; // constante aquele que não é possivel de mudar
+    let valorConvertido; // aquele que muda se chama let
+    valorConvertido = (valorConverter/cotacao).toFixed(2);
+    return `€ ${valorConvertido}`; /// esse é outra forma de converter 
+}
+
+function main() {
+    let valorConverter, valorConvertido;
+    let opcaoMoeda;
+   
+   // Primeira linha: solicita ao usuário qual moeda ele quer converter (Dólar ou Euro)
+opcaoMoeda = prompt("Olá, Qual conversão você deseja realizar hoje? 1 - Dólar   2 - Euro");
+
+// Verifica se a opção escolhida é inválida (diferente de 1 ou 2)
+if (opcaoMoeda != 1 && opcaoMoeda != 2) {
+  alert("Opção inválida!"); // Se for inválida, mostra um alerta e não continua
+} else {
+  // Se a opção for válida, pede o valor em reais (R$) para converter
+  valorConverter = prompt("Digite o valor que deseja converter: (em R$)");
+
+  // Se a opção escolhida foi 1, converte de Real para Dólar
+  if (opcaoMoeda == 1) {
+    valorConvertido = RealParaDolar(valorConverter);
+  } else {
+    // Caso contrário (se for 2), converte de Real para Euro
+    valorConvertido = RealParaEuro(valorConverter);
+  }
+
+  // Exibe o valor convertido em um alerta
+  alert("O valor convertido é" + valorConvertido);
+}
+}
+main(); // Chama a função principal (existe uma função chamada `main` onde o código acima está contido)
